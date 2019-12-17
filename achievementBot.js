@@ -10,7 +10,9 @@ client.on('message', async (msg) => {
     if(cmd.startsWith('achievement') || cmd.startsWith('a')) {
         let args = cmd.match(/[\w.!?\\-]+|"[^"]+"/g);
 		args.shift();
-		msg.channel.send({files:[{attachment:`https://minecraftskinstealer.com/achievement/${encodeURI(`${args[2] ? args[2].replace(/"/g, '') : Math.floor((Math.random()+1)*39)}/${args.length > 1 ? args[0].replace(/"/g, '') : 'Achievement Get!'}/${args.length > 1 ? args[1].replace(/"/g, '') : args[0].replace(/"/g, '')}`)}`, name:'file.png'}]});
+		let item = Math.floor((Math.random())*39);
+		console.log(item)
+		msg.channel.send({files:[{attachment:`https://minecraftskinstealer.com/achievement/${encodeURI(`${args[2] ? args[2].replace(/"/g, '') : item}/${args.length > 1 ? args[0].replace(/"/g, '') : 'Achievement Get!'}/${args.length > 1 ? args[1].replace(/"/g, '') : args[0].replace(/"/g, '')}`)}`, name:'file.png'}]});
     }
 })
 
